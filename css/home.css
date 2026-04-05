@@ -1,0 +1,111 @@
+section{
+    min-height: 100vh;
+    padding: 9rem 5% ;
+}
+
+.hero{
+    position: relative;
+}
+
+.hero::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: url("../assets/hero_union.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(.7) blur(5px);
+    z-index: -1;
+}
+
+.hero h1{
+    font-size: 8rem;
+    color: var(--text-color-2);
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: var(--bg-color);
+}
+.news,
+.events{
+    background-color: var(--bg-color);
+}
+
+
+.home .home-content h1,
+.news h1,
+.events h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.jobs{
+    color: var(--main-color);
+}
+
+.home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+
+/* added width = 100% */
+.home-content p{
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.home-img{
+    border-radius: 50%;
+    
+}
+
+
+.home-img img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.home-img img:hover{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+
+@media (max-width:1000px){
+    .home{
+        gap: 4rem;
+    }
+}
+@media (max-width:995px){
+    .home{
+        flex-direction: column;
+        margin: .7rem 4rem 3rem 4rem;
+    }
+
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+}
+
+.my-card{
+    background-color: var(--main-color-card);
+}

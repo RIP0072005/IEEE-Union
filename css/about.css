@@ -1,0 +1,121 @@
+section{
+    min-height: 100vh;
+    padding: 9rem 5% ;
+}
+
+h1{
+    color: #fff;
+    font-size: 5rem;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: transparent;
+    letter-spacing: 4px;
+    background-color: rgb(4, 52, 83);
+    background: linear-gradient(144deg,  #09508a 0%, #ec9e31 41%, #2d75b2 81%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+h1::after{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    width: 80%;
+    height: 8px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, .05);
+}
+
+p{
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+
+/* 1. تظبيط الحاوية والقوائم الأساسية */
+/* .tree-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+} */
+
+.tree-container ul {
+  padding-top: 20px;
+  position: relative;
+  display: flex;
+  /* padding-right: 0; تصفير مسافات اللستة العربي */
+}
+
+.tree-container li {
+  list-style-type: none;
+  position: relative;
+  padding: 20px 5px 0 5px;
+  text-align: center;
+}
+
+/* 2. رسم الخط الرأسي النازل من الأب للولاد */
+.tree-container ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%; /* في النص بالظبط */
+  border-left: 2px solid #ccc;
+  width: 0;
+  height: 20px;
+}
+.tree-container > ul::before {
+  display: none; /* بنشيل الخط من فوق المدير العام لأنه أعلى حاجة */
+}
+
+/* 3. رسم الخطوط الأفقية اللي بتربط الأخوات ببعض */
+.tree-container li::before, .tree-container li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 2px solid #ccc;
+  width: 50%;
+  height: 20px;
+}
+.tree-container li::after {
+  right: auto;
+  left: 50%;
+  border-left: 2px solid #ccc;
+}
+
+/* تظبيط الخطوط لأول وآخر عنصر عشان ميطلعوش بره الهيكل */
+.tree-container li:only-child::after, .tree-container li:only-child::before {
+  display: none;
+}
+.tree-container li:only-child {
+  padding-top: 0;
+}
+.tree-container li:first-child::before, .tree-container li:last-child::after {
+  border: 0 none;
+}
+.tree-container li:last-child::before {
+  border-right: 2px solid #ccc;
+  border-radius: 0 5px 0 0;
+}
+.tree-container li:first-child::after {
+  border-radius: 5px 0 0 0;
+}
+
+/* 4. تصميم المربعات (الكروت) نفسها */
+.tree-container .box {
+  border: 2px solid #3498db;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 8px;
+  background-color: white;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+/* تلوين مختلف لكل مستوى عشان الشياكة */
+.tree-container .manager { background-color: #2c3e50; color: white; border-color: #2c3e50; }
+.tree-container .department { background-color: #3498db; color: white; border-color: #3498db; }
+.tree-container .employee { background-color: #ecf0f1; color: #333; }
