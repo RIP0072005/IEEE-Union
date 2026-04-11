@@ -1,64 +1,110 @@
-/* ضبط المسافات الكلية لتشبه باقي الموقع */
-main {
-    padding-top: 8rem; /* عشان الهيدر ما يغطيش العنوان */
-    min-height: 80vh;
-}
-
+/* تنسيق العنوان ليطابق "لجان الاتحاد" بالظبط */
 .section-title {
-    font-size: 5rem !important; /* مقاس كبير ليناسب الـ 62.5% */
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 5rem;
-    /* كود الألوان المتعددة (Gradient) */
-    background: linear-gradient(90deg, #ffd700, #ffffff, #2d75b2, #ffd700);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
+    color: #fff;
+    font-size: 5rem;
+    letter-spacing: 4px;
+    background: linear-gradient(144deg, rgb(82, 4, 118) 0%, rgba(0, 230, 173, 1) 41%, rgba(82, 4, 118, .78) 100%);
     -webkit-text-fill-color: transparent;
-    /* حركة اختيارية: تجعل الألوان تتحرك */
-    animation: shine 3s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    position: relative;
+    font-weight: 800;
+    margin-bottom: 80px;
+    display: inline-block;
 }
 
-/* الأنميشن اللي بيخلي الألوان تتحرك زي اللجان */
-@keyframes shine {
-    to {
-        background-position: 200% center;
-    }
+/* الخط اللي تحت العنوان */
+.section-title::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    width: 80%;
+    height: 8px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, .05);
 }
 
-/* الكروت: جعلها تشبه الـ Cards في صفحة اللجان مثلاً */
+/* توزيع الكروت بنفس نظام اللجان */
+#events-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* الكارت مطابق لكارت اللجان 100% */
 .event-card {
-    background: #111 !important; /* لون أسود عميق */
-    border: 2px solid #222 !important;
-    border-radius: 20px !important;
-    transition: 0.4s all ease-in-out;
+    text-align: center;
+    height: auto; /* خليته auto عشان الصور والوصف */
+    min-height: 450px;
+    width: 370px;
+    padding: 2rem 2.8rem;
+    background-color: var(--bg-color) !important;
+    border-radius: 4rem !important;
+    border: 2px solid var(--main-color) !important;
+    transition: .3s ease;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
 }
 
 .event-card:hover {
-    border-color: #ffd700 !important;
-    transform: translateY(-10px);
-    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.15) !important;
+    transform: scale3d(1.03);
+    background-color: var(--main-color) !important;
+    box-shadow: 0 0 25px var(--main-color);
 }
 
-/* جعل النصوص ناصعة البياض وواضحة جداً */
+/* تأثير اللمعان (After) اللي موجود في اللجان */
+.event-card::after {
+    content: "";
+    position: absolute;
+    top: 150%;
+    left: -200px;
+    width: 120%;
+    height: 18px;
+    transform: rotate(50deg);
+    background-color: #fff;
+    filter: blur(30px);
+    opacity: .5;
+    transition: 1s;
+}
+
+.event-card:hover::after {
+    width: 225%;
+    top: -100%;
+}
+
+/* النصوص داخل الكارت */
 .event-card .card-title {
-    color: #ffd700 !important; /* الذهبي الرسمي */
-    font-size: 2.4rem !important;
-    margin-bottom: 1.5rem;
+    color: var(--text-color) !important;
+    font-size: 2.2rem;
+    margin-top: 15px;
 }
 
 .event-card .card-text {
-    color: #ffffff !important; /* أبيض صريح وليس رمادي */
-    font-size: 1.6rem !important;
-    line-height: 1.6;
-    opacity: 1 !important;
+    color: var(--text-color) !important;
+    font-size: 1.5rem;
+    margin: 12px 0;
 }
 
-/* ضبط التاريخ ليكون شيك وغير متداخل */
+/* التاريخ (Badge) */
 .event-date {
-    background: #ffd700 !important;
+    background: #72e2ae !important; /* لون أخضر فاتح زي النقطة اللي في اللجان */
     color: #000 !important;
-    padding: 0.8rem 2rem !important;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 1.4rem;
     font-weight: bold;
-    font-size: 1.4rem !important;
-    border-radius: 0 0 15px 15px; /* شكل جمالي في الزاوية */
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Responsive بنفس قيم اللجان */
+@media screen and (max-width: 1200px) {
+    #events-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 900px) {
+    #events-container { grid-template-columns: repeat(1, 1fr); }
+    .section-title { font-size: 3.5rem; }
 }
