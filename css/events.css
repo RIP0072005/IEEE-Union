@@ -1,72 +1,54 @@
-/* كارت الفعالية - خلفية غامقة وحدود واضحة */
+/* ضبط المسافات الكلية لتشبه باقي الموقع */
+main {
+    padding-top: 8rem; /* عشان الهيدر ما يغطيش العنوان */
+    min-height: 80vh;
+}
+
+/* تنسيق العنوان الرئيسي ليكون بنفس شكل باقي الصفحات */
+.section-title {
+    font-size: 4rem !important; /* مقاس كبير وواضح */
+    color: #fff !important;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* الكروت: جعلها تشبه الـ Cards في صفحة اللجان مثلاً */
 .event-card {
-    background-color: #1a1a1a !important; /* لون رمادي غامق جدا ليكون الخلفية واضحة */
-    border: 1px solid #444 !important; /* حدود رمادية لتمييز الكارت */
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative; /* مهم جدا لمكان التاريخ */
-    transition: all 0.3s ease;
-    margin-bottom: 2rem;
+    background: #111 !important; /* لون أسود عميق */
+    border: 2px solid #222 !important;
+    border-radius: 20px !important;
+    transition: 0.4s all ease-in-out;
 }
 
 .event-card:hover {
-    transform: translateY(-5px);
-    border-color: #ffd700 !important; /* يضيء بالذهبي عند الهوفر */
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    border-color: #ffd700 !important;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.15) !important;
 }
 
-/* التاريخ المصحح - في الزاوية اليمنى العليا */
-.event-date {
-    position: absolute !important;
-    top: 1rem !important;
-    right: 1rem !important; /* لليسار في RTL أو اليمين في LTR، جرب الإثنين */
-    background: #ffd700 !important; /* ذهبي ناصع ليكون واضحا */
-    color: #000 !important; /* كتابة سوداء لتباين مثالي */
-    padding: 0.6rem 1.8rem !important;
-    border-radius: 20px;
-    font-weight: 800 !important;
-    font-size: 1.4rem !important;
-    z-index: 5;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    pointer-events: none; /* عشان ما يمنعش الهوفر على الكارت */
-}
-
-/* حل مشكلة شفافية العنوان - ذهبي ناصع */
+/* جعل النصوص ناصعة البياض وواضحة جداً */
 .event-card .card-title {
-    color: #ffd700 !important; /* ألوان ناصعة تماما بدون شفافية */
-    font-size: 2.2rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 1.5rem !important;
-    display: block;
-    margin-top: 2rem; /* مسافة للأسفل عشان التاريخ ما يغطيش العنوان */
+    color: #ffd700 !important; /* الذهبي الرسمي */
+    font-size: 2.4rem !important;
+    margin-bottom: 1.5rem;
 }
 
-/* حل مشكلة شفافية الوصف - أبيض ناصع */
 .event-card .card-text {
-    color: #ffffff !important; /* أبيض ناصع تماما بدون شفافية */
-    font-size: 1.5rem !important;
-    line-height: 1.8 !important;
-    opacity: 1 !important; /* إلغاء أي شفافية موروثة */
+    color: #ffffff !important; /* أبيض صريح وليس رمادي */
+    font-size: 1.6rem !important;
+    line-height: 1.6;
+    opacity: 1 !important;
 }
 
-/* حل مشكلة شفافية المكان - أبيض مطفي قليلا */
-.location {
-    color: #f1f1f1 !important; /* قريب من الأبيض الناصع */
-    font-size: 1.3rem !important;
-    opacity: 1 !important; /* إلغاء أي شفافية موروثة */
-}
-
-.location i {
-    color: #ffd700 !important; /* أيقونة ذهبية ناصعة */
-    margin-left: 0.5rem !important;
-}
-
-/* البادج الخاصة بالفعاليات القادمة */
-.badge.bg-warning {
-    background-color: #ff3333 !important; /* أحمر ناصع ليكون واضحا جدا */
-    color: #ffffff !important;
+/* ضبط التاريخ ليكون شيك وغير متداخل */
+.event-date {
+    background: #ffd700 !important;
+    color: #000 !important;
+    padding: 0.8rem 2rem !important;
+    font-weight: bold;
     font-size: 1.4rem !important;
-    padding: 0.8rem 1.8rem !important;
-    margin-right: 1.5rem !important;
-    border-radius: 5px;
+    border-radius: 0 0 15px 15px; /* شكل جمالي في الزاوية */
 }
