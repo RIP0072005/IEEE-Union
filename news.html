@@ -6,14 +6,11 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./css/news.css">
-    <title>الأخبار - FEE Union</title>
+    <title>News - FEE Union</title>
 </head>
 <body>
-
     <header>
-        <a href="./index.html" class="logo1">
-            <img src="./assets/Logo-removebg-preview.png" width="70px" alt="Logo">
-        </a>
+        <a href="./index.html" class="logo1"><img src="./assets/Logo-removebg-preview.png" width="70px" alt="Logo"></a>
         <div class="list">
             <nav>
                 <a href="./index.html" class="nav-link1">Home</a>
@@ -28,28 +25,31 @@
         <button id="theme" class="btn1"></button>
     </header>
 
-    <section class="container mt-5 text-center">
-        <div class="service-wrapper" style="padding-top: 100px;"> <h1 class="section-title">أحدث الأخبار</h1>
-            
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="achievements">إنجازات</button>
-                <button class="filter-btn" data-filter="college">أخبار الكلية</button>
-            </div>
-
-            <div class="news-grid" id="news-container">
-                <div class="news-card news-item achievements">
-                    <img src="./assets/news1.jpg" alt="خبر">
-                    <div class="news-badge">إنجاز</div>
-                    <h2>مركز أول في الهاكاثون</h2>
-                    <p>حصد طلاب اتحادنا المركز الأول في مسابقة الهاكاثون على مستوى الجامعة.</p>
+    <section class="container">
+        <div class="service-wrapper">
+            <div class="service">
+                <h1 class="section-title">أخبار الاتحاد <span></span></h1>
+                
+                <div class="filter-container mt-4">
+                    <button class="filter-btn active" data-filter="all">الكل</button>
+                    <button class="filter-btn" data-filter="achievements">إنجازات</button>
+                    <button class="filter-btn" data-filter="college">الكلية</button>
                 </div>
 
-                <div class="news-card news-item college">
-                    <img src="./assets/news2.jpg" alt="خبر">
-                    <div class="news-badge">أخبار الكلية</div>
-                    <h2>تجديد مدرجات قسم اتصالات</h2>
-                    <p>بدء أعمال التطوير والصيانة في مدرجات قسم هندسة الاتصالات لخدمة الطلاب.</p>
+                <div class="cards news-grid">
+                    <div class="card news-card achievements">
+                        <img src="./assets/news1.jpg" style="width: 100%; border-radius: 2rem; margin-top: 10px;" alt="">
+                        <div class="news-badge mt-3">إنجاز</div>
+                        <h2 class="mb-3">مركز أول هاكاثون</h2>
+                        <p>طلاب كلية الهندسة بمنوف يحصدون المركز الأول في مسابقة الهاكاثون البرمجية.</p>
+                    </div>
+
+                    <div class="card news-card college">
+                        <img src="./assets/news2.jpg" style="width: 100%; border-radius: 2rem; margin-top: 10px;" alt="">
+                        <div class="news-badge mt-3">أخبار الكلية</div>
+                        <h2 class="mb-3">تطوير المدرجات</h2>
+                        <p>استمرار أعمال الصيانة الدورية وتطوير قاعات المحاضرات بالكلية لخدمة الطلاب.</p>
+                    </div>
                 </div>
             </div>
         </div>
