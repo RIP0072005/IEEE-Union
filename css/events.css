@@ -4,15 +4,25 @@ main {
     min-height: 80vh;
 }
 
-/* تنسيق العنوان الرئيسي ليكون بنفس شكل باقي الصفحات */
 .section-title {
-    font-size: 4rem !important; /* مقاس كبير وواضح */
-    color: #fff !important;
-    text-align: center;
+    font-size: 5rem !important; /* مقاس كبير ليناسب الـ 62.5% */
     font-weight: 800;
+    text-align: center;
     margin-bottom: 5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    /* كود الألوان المتعددة (Gradient) */
+    background: linear-gradient(90deg, #ffd700, #ffffff, #2d75b2, #ffd700);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* حركة اختيارية: تجعل الألوان تتحرك */
+    animation: shine 3s linear infinite;
+}
+
+/* الأنميشن اللي بيخلي الألوان تتحرك زي اللجان */
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
 }
 
 /* الكروت: جعلها تشبه الـ Cards في صفحة اللجان مثلاً */
