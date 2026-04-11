@@ -1,0 +1,49 @@
+/* أزرار الفلترة */
+.filter-btn {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 25px;
+    padding: 6px 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* كارت الخبر */
+.news-card {
+    border: none;
+    border-radius: 12px;
+    transition: 0.3s;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.news-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* بادج نوع الخبر (إنجاز، خبر كلية، إلخ) */
+.news-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px; /* يظهر على اليسار ليميز عن تاريخ الفعاليات */
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.news-item {
+    transition: all 0.4s ease-in-out;
+}
+
+.card-text {
+    line-height: 1.6;
+}
