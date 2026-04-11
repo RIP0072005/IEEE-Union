@@ -1,71 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" sizes="16x32" href="./assets/Logo-removebg-preview.png" >
-    <link rel="stylesheet" href="./css/all.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./css/news.css">
-    <title>FEE Union</title>
+    <title>الأخبار - FEE Union</title>
 </head>
 <body>
     <header>
-        <a href="./index.html" class="logo1"><img src="./assets/Logo-removebg-preview.png" width="70px" alt=""></a>
-        <div class="list">
-            <nav>
-                <a href="./index.html" class="nav-link1">Home</a>
-                <a href="./about.html" class="nav-link1">About</a>
-                <a href="./committees.html" class="nav-link1">Committees</a>
-                <a href="./events.html" class="nav-link1">Events</a>
-                <a href="./news.html" class="active nav-link1">News</a>
-                <a href="./contact.html" class="nav-link1">Contact & Join Us</a>
-            </nav>
-            <div id="menu-icon"><i class="fa-solid fa-bars-staggered"></i></div>
-        </div>
-        <button id="theme" class="btn1">
-        </button>
-    </header>
-<main class="container my-5" dir="rtl">
-    <h2 class="section-title text-center mb-4">أخبار الاتحاد وإنجازات الطلاب</h2>
-    
-    <div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
-        <button class="btn btn-outline-primary active filter-btn" data-filter="all">الكل</button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="achievements">إنجازات</button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="past-events">فعاليات سابقة</button>
-        <button class="btn btn-outline-primary filter-btn" data-filter="college">أخبار الكلية</button>
-    </div>
+        </header>
 
-    <div class="row g-4" id="news-grid">
-        <div class="col-md-6 col-lg-4 news-item achievements">
-            <div class="card news-card h-100 shadow-sm position-relative">
-                <div class="news-badge">إنجاز</div>
-                <img src="./assets/student1.jpg" class="card-img-top" alt="News">
-                <div class="card-body">
-                    <h5 class="card-title">فوز فريق الكلية بالمركز الأول في RoboCon</h5>
-                    <p class="card-text text-muted small">فخورين بطلابنا الذين حققوا هذا المركز المتقدم على مستوى الجامعات المصرية.</p>
-                    <hr>
-                    <small class="text-secondary font-italic">تاريخ النشر: 5 ابريل 2026</small>
+    <section class="container mt-5 text-center">
+        <div class="service-wrapper">
+            <h1 class="section-title">أحدث الأخبار</h1>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="achievements">إنجازات</button>
+                <button class="filter-btn" data-filter="college">أخبار الكلية</button>
+            </div>
+
+            <div class="news-grid" id="news-container">
+                <div class="news-card news-item achievements">
+                    <img src="./assets/news1.jpg" alt="خبر">
+                    <div class="news-badge">إنجاز</div>
+                    <h2>مركز أول في الهاكاثون</h2>
+                    <p>حصد طلاب اتحادنا المركز الأول في مسابقة الهاكاثون على مستوى الجامعة.</p>
+                </div>
+
+                <div class="news-card news-item college">
+                    <img src="./assets/news2.jpg" alt="خبر">
+                    <div class="news-badge">أخبار الكلية</div>
+                    <h2>تجديد مدرجات قسم اتصالات</h2>
+                    <p>بدء أعمال التطوير والصيانة في مدرجات قسم هندسة الاتصالات لخدمة الطلاب.</p>
                 </div>
             </div>
         </div>
-        
-        <div class="col-md-6 col-lg-4 news-item past-events">
-            <div class="card news-card h-100 shadow-sm position-relative">
-                <div class="news-badge bg-secondary">فعالية سابقة</div>
-                <img src="./assets/past-event.jpg" class="card-img-top" alt="News">
-                <div class="card-body">
-                    <h5 class="card-title">إفطار رمضان الجماعي 2026</h5>
-                    <p class="card-text text-muted small">صور من تجمع طلاب هندسة منوف في الإفطار السنوي للاتحاد.</p>
-                    <a href="#" class="text-primary text-decoration-none small font-weight-bold">مشاهدة الألبوم <i class="fas fa-arrow-left"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-    <script src="./js/all.min.js"></script>
+    </section>
+
     <script src="./js/script.js"></script>
-    <script src="./js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="./js/news-filter.js"></script> </body>
 </html>
