@@ -44,3 +44,24 @@ menuIcon.onclick = () => {
     
     menuIcon.classList.toggle('bx-x');
 };
+// كود الفلترة لصفحة الأخبار
+const filterButtons = document.querySelectorAll('.filter-btn');
+if(filterButtons.length > 0) {
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+            const items = document.querySelectorAll('.news-item');
+
+            items.forEach(item => {
+                if (filter === 'all' || item.classList.contains(filter)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+}
