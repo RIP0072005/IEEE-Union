@@ -4,18 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./css/news.css">
     <title>الأخبار - FEE Union</title>
 </head>
 <body>
+
     <header>
-        </header>
+        <a href="./index.html" class="logo1">
+            <img src="./assets/Logo-removebg-preview.png" width="70px" alt="Logo">
+        </a>
+        <div class="list">
+            <nav>
+                <a href="./index.html" class="nav-link1">Home</a>
+                <a href="./about.html" class="nav-link1">About</a>
+                <a href="./committees.html" class="nav-link1">Committees</a>
+                <a href="./events.html" class="nav-link1">Events</a>
+                <a href="./news.html" class="active nav-link1">News</a>
+                <a href="./contact.html" class="nav-link1">Contact & Join Us</a>
+            </nav>
+            <div id="menu-icon"><i class="fa-solid fa-bars-staggered"></i></div>
+        </div>
+        <button id="theme" class="btn1"></button>
+    </header>
 
     <section class="container mt-5 text-center">
-        <div class="service-wrapper">
-            <h1 class="section-title">أحدث الأخبار</h1>
+        <div class="service-wrapper" style="padding-top: 100px;"> <h1 class="section-title">أحدث الأخبار</h1>
             
             <div class="filter-container">
                 <button class="filter-btn active" data-filter="all">الكل</button>
@@ -42,5 +56,6 @@
     </section>
 
     <script src="./js/script.js"></script>
-    <script src="./js/news-filter.js"></script> </body>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</body>
 </html>
