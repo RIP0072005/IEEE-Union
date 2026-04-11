@@ -1,36 +1,119 @@
-/* أزرار الفلترة - جعلها تشبه أزرار الموقع الأصلية */
-.filter-btn {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #ffd700;
-    font-size: 1.6rem;
-    padding: 1rem 2.5rem;
-    border-radius: 30px;
-    margin: 0.5rem;
-    transition: 0.3s;
+/* --- إعدادات الصفحة العامة --- */
+main {
+    padding-top: 5rem;
+    min-height: 100vh;
 }
 
-.filter-btn.active, .filter-btn:hover {
+/* --- العنوان المتدرج (مثل صفحة اللجان) --- */
+.section-title {
+    font-size: 4.5rem !important; /* متوافق مع 62.5% */
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 4rem;
+    background: linear-gradient(90deg, #ffd700, #ffffff, #2d75b2, #ffd700);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+/* --- أزرار الفلترة (Filter Buttons) --- */
+.filter-btn {
+    background: #111;
+    color: #fff;
+    border: 2px solid #333;
+    font-size: 1.6rem;
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: 0.4s all ease;
+}
+
+.filter-btn:hover {
+    border-color: #ffd700;
+    color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.filter-btn.active {
     background: #ffd700;
     color: #000;
-    box-shadow: 0 0 15px #ffd700;
+    border-color: #ffd700;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
 }
 
-/* كروت الأخبار */
+/* --- كروت الأخبار (News Cards) --- */
 .news-card {
-    background: #111 !important;
-    border: 1px solid #333 !important;
-    border-radius: 15px !important;
+    background-color: #111 !important; /* أسود عميق */
+    border: 1px solid #222 !important;
+    border-radius: 1.5rem !important;
+    overflow: hidden;
+    transition: 0.4s ease;
+    height: 100%;
 }
 
-.news-card .card-title {
-    color: #fff !important;
-    font-size: 2.2rem !important;
+.news-card:hover {
+    transform: translateY(-10px);
+    border-color: #2d75b2 !important; /* يضيء بالأزرق عند الهوفر */
+    box-shadow: 0 10px 30px rgba(45, 117, 178, 0.2) !important;
 }
 
+/* بادج نوع الخبر */
 .news-badge {
-    background: #1a237e !important; /* لون كحلي الاتحاد */
-    font-size: 1.2rem !important;
-    padding: 0.5rem 1.5rem !important;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: #1a237e; /* أزرق الاتحاد */
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
     border-radius: 5px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* نصوص الكارت */
+.news-card .card-title {
+    color: #ffffff !important;
+    font-size: 2.2rem !important;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.news-card .card-text {
+    color: #cccccc !important; /* أبيض هادئ للقراءة */
+    font-size: 1.5rem !important;
+    line-height: 1.7;
+    opacity: 1 !important;
+}
+
+/* التاريخ وتفاصيل أسفل الكارت */
+.news-card hr {
+    border-color: #333;
+    margin: 1.5rem 0;
+}
+
+.text-secondary {
+    color: #ffd700 !important; /* جعل التاريخ بالذهبي ليبرز */
+    font-size: 1.3rem !important;
+    font-weight: 500;
+}
+
+/* تأثير لصور الأخبار */
+.news-card img {
+    filter: grayscale(20%);
+    transition: 0.4s;
+}
+
+.news-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
 }
