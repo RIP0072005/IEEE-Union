@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="./css/events.css"> <title>الفعاليات - FEE Union</title>
+    <link rel="stylesheet" href="./css/style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/events.css">
+    <title>Events - FEE Union</title>
 </head>
 <body>
+
     <header>
-        <a href="./index.html" class="logo1"><img src="./assets/Logo-removebg-preview.png" width="70px" alt=""></a>
+        <a href="./index.html" class="logo1"><img src="./assets/Logo-removebg-preview.png" width="70px" alt="Logo"></a>
         <div class="list">
             <nav>
                 <a href="./index.html" class="nav-link1">Home</a>
@@ -25,37 +26,27 @@
         <button id="theme" class="btn1"></button>
     </header>
 
-    <section class="container mt-5">
-        <div class="service-wrapper">
-            <div class="service">
-                <h1 class="section-title">الفعاليات القادمة</h1>
-                
-                <div id="events-container">
-                    <div class="event-card">
-                        <div class="event-date">15 ابريل</div>
-                        <i class="fa-solid fa-code-compare" style="font-size: 4.8rem; margin-top: 30px; display: block;"></i>
-                        <h2 class="mb-3">مسابقة البرمجة</h2>
-                        <p>تحدي بين طلاب الحاسبات لحل المشكلات البرمجية في أسرع وقت ممكن بمدرجات الكلية.</p>
-                        <div class="location" style="font-size: 1.4rem; color: var(--text-color); margin-top: 15px;">
-                            <i class="fa-solid fa-location-dot"></i> مدرج 1
-                        </div>
-                    </div>
+    <main class="container" style="padding-top: 150px;">
+        <h1 class="section-title text-center">الفعاليات القادمة</h1>
 
-                    <div class="event-card">
-                        <div class="event-date">20 مايو</div>
-                        <i class="fa-solid fa-trophy" style="font-size: 4.8rem; margin-top: 30px; display: block;"></i>
-                        <h2 class="mb-3">يوم الهندسة</h2>
-                        <p>عرض لمشروعات التخرج المتميزة وتكريم الطلاب الأوائل في كافة الأقسام.</p>
-                        <div class="location" style="font-size: 1.4rem; color: var(--text-color); margin-top: 15px;">
-                            <i class="fa-solid fa-location-dot"></i> ساحة الكلية
-                        </div>
+        <div class="event-main-wrapper">
+            <h2 class="event-title-top">مسابقة البرمجة الكبرى</h2>
+            <div class="event-grid">
+                <div class="event-info-box">
+                    <h3>تفاصيل عن الحدث</h3>
+                    <p>وصف تفصيلي للفعالية وما سيتم تقديمه للطلاب من محتوى تقني وتدريبي.</p>
+                    <div class="event-footer">
+                        <p><strong><i class="fa-solid fa-clock"></i> مدة الحدث:</strong> 15 ابريل - 10 صباحاً</p>
+                        <a href="#" class="register-link"><i class="fa-solid fa-link"></i> لينك التسجيل أو البوست</a>
                     </div>
+                </div>
+                <div class="event-photo-box">
+                    <img src="./assets/event1.jpg" alt="Event Image">
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <script src="./js/script.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
 </body>
 </html>
