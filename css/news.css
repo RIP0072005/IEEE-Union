@@ -1,14 +1,25 @@
-/* تنسيقات العناوين الرئيسية */
+/* --- عنوان "الأخبار" (نفس ستايل الفعاليات) --- */
+.section-title {
+    font-size: 5rem;
+    background: linear-gradient(144deg, #520476 0%, #00e6ad 41%, #520476 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 70px;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* عناوين السكاشن (أخبار الكلية / الإنجازات) */
 .category-header {
     color: var(--main-color);
-    font-size: 3rem;
+    font-size: 2.8rem;
     margin-bottom: 30px;
     border-right: 5px solid var(--main-color);
     padding-right: 15px;
     font-weight: 800;
 }
 
-/* حاوية الخبر (الصف الأفقي) */
+/* حاوية الخبر (النظام الأفقي) */
 .news-row {
     display: flex;
     align-items: center;
@@ -18,15 +29,20 @@
     border-radius: 40px;
     padding: 30px;
     margin-bottom: 50px;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
+/* --- تأثير الـ Hover (أحمر متوهج زي Committees) --- */
 .news-row:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 30px var(--main-color);
+    transform: translateY(-10px) scale(1.01);
+    border-color: #ff0000 !important; /* تغيير الإطار للأحمر */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); /* توهج أحمر */
+    background: rgba(255, 0, 0, 0.02);
 }
 
-/* بوكس الصورة */
 .news-image-box {
     flex: 1;
     min-width: 300px;
@@ -37,36 +53,31 @@
     height: 250px;
     object-fit: cover;
     border-radius: 25px;
-    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.4s;
 }
 
-/* بوكس النص (ناصع البياض) */
+/* النص ناصع البياض وغير باهت */
 .news-text-box {
     flex: 2;
     text-align: right;
 }
 
 .news-text-box h3 {
-    color: #ffffff !important; /* أبيض ناصع للعنوان */
-    font-size: 2.8rem;
+    color: #ffffff !important;
+    font-size: 2.6rem;
     margin-bottom: 15px;
     font-weight: 800;
 }
 
 .news-text-box p {
-    color: #fdfdfd !important; /* أبيض صريح يمنع البهتان */
-    font-size: 1.7rem;
+    color: #ffffff !important;
+    font-size: 1.6rem;
     line-height: 1.8;
     opacity: 1 !important;
 }
 
 /* التجاوب مع الموبايل */
 @media (max-width: 900px) {
-    .news-row {
-        flex-direction: column;
-        padding: 20px;
-    }
-    .news-image-box {
-        width: 100%;
-    }
+    .news-row { flex-direction: column; text-align: center; }
+    .news-text-box { text-align: center; }
 }
