@@ -1,16 +1,16 @@
-/* العنوان المتدرج العلوي */
+/* العنوان الرئيسي المتدرج */
 .section-title {
-    font-size: 4.5rem;
+    font-size: 5rem;
     background: linear-gradient(144deg, #520476 0%, #00e6ad 41%, #520476 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 70px;
+    margin-bottom: 80px;
     font-weight: 900;
 }
 
-/* الحاوية الكبيرة لكل فعالية */
 .event-main-wrapper {
     margin-bottom: 120px;
+    transition: 0.4s;
 }
 
 .event-title-top {
@@ -20,23 +20,48 @@
     font-weight: 800;
 }
 
-/* شبكة الفعالية (التقسيم الأفقي) */
+/* تقسيم الشبكة */
 .event-grid {
     display: flex;
     gap: 40px;
-    align-items: stretch; /* لجعل البوكسين بنفس الطول */
+    align-items: stretch;
 }
 
-/* بوكس التفاصيل (إطار أبيض كما في الرسم) */
+/* بوكس التفاصيل (إطار أبيض) */
 .event-info-box {
     flex: 1.5;
-    border: 3px solid #ffffff !important; /* الإطار الأبيض المطلوب */
+    border: 3px solid #ffffff !important;
     border-radius: 50px;
     padding: 50px;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+}
+
+/* بوكس الصورة (إطار ملون) */
+.event-photo-box {
+    flex: 1;
+    border: 3px solid var(--main-color) !important;
+    border-radius: 50px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.event-photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- تأثير الـ Hover الأحمر (زي Committees) --- */
+.event-main-wrapper:hover .event-info-box {
+    border-color: #ff0000 !important; /* الإطار الأبيض يتحول لأحمر */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+}
+
+.event-main-wrapper:hover .event-photo-box {
+    border-color: #ff0000 !important; /* الإطار الملون يتحول لأحمر */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+    transform: scale(1.02);
 }
 
 .event-info-box h3 {
@@ -52,50 +77,20 @@
     line-height: 1.9;
 }
 
-/* الفوتر الخاص بالحدث (الموعد واللينك) */
 .event-footer {
     margin-top: 30px;
+    border-top: 1px dashed rgba(255,255,255,0.2);
     padding-top: 20px;
-    border-top: 1px dashed rgba(255,255,255,0.3);
-}
-
-.event-footer p {
-    font-size: 1.5rem;
-    color: #72e2ae !important;
-    margin-bottom: 10px;
 }
 
 .register-link {
-    display: inline-block;
-    color: var(--main-color);
+    color: #72e2ae;
     text-decoration: none;
-    font-size: 1.6rem;
     font-weight: bold;
-    transition: 0.3s;
-}
-
-.register-link:hover {
-    text-shadow: 0 0 10px var(--main-color);
-}
-
-/* بوكس الصورة (إطار ملون كما في الرسم) */
-.event-photo-box {
-    flex: 1;
-    border: 3px solid var(--main-color) !important; /* الإطار الملون للموقع */
-    border-radius: 50px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-.event-photo-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    font-size: 1.6rem;
 }
 
 /* التجاوب مع الموبايل */
 @media (max-width: 992px) {
-    .event-grid {
-        flex-direction: column-reverse; /* الصورة تظهر فوق الكلام في الموبايل */
-    }
+    .event-grid { flex-direction: column-reverse; }
 }
