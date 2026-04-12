@@ -1,110 +1,101 @@
-/* تنسيق العنوان ليطابق "لجان الاتحاد" بالظبط */
+/* العنوان المتدرج العلوي */
 .section-title {
-    color: #fff;
-    font-size: 5rem;
-    letter-spacing: 4px;
-    background: linear-gradient(144deg, rgb(82, 4, 118) 0%, rgba(0, 230, 173, 1) 41%, rgba(82, 4, 118, .78) 100%);
-    -webkit-text-fill-color: transparent;
+    font-size: 4.5rem;
+    background: linear-gradient(144deg, #520476 0%, #00e6ad 41%, #520476 100%);
     -webkit-background-clip: text;
-    background-clip: text;
-    position: relative;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 70px;
+    font-weight: 900;
+}
+
+/* الحاوية الكبيرة لكل فعالية */
+.event-main-wrapper {
+    margin-bottom: 120px;
+}
+
+.event-title-top {
+    color: #fff;
+    font-size: 3.2rem;
+    margin-bottom: 35px;
     font-weight: 800;
-    margin-bottom: 80px;
-    display: inline-block;
 }
 
-/* الخط اللي تحت العنوان */
-.section-title::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 10%;
-    width: 80%;
-    height: 8px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, .05);
+/* شبكة الفعالية (التقسيم الأفقي) */
+.event-grid {
+    display: flex;
+    gap: 40px;
+    align-items: stretch; /* لجعل البوكسين بنفس الطول */
 }
 
-/* توزيع الكروت بنفس نظام اللجان */
-#events-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
+/* بوكس التفاصيل (إطار أبيض كما في الرسم) */
+.event-info-box {
+    flex: 1.5;
+    border: 3px solid #ffffff !important; /* الإطار الأبيض المطلوب */
+    border-radius: 50px;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* الكارت مطابق لكارت اللجان 100% */
-.event-card {
-    text-align: center;
-    height: auto; /* خليته auto عشان الصور والوصف */
-    min-height: 450px;
-    width: 370px;
-    padding: 2rem 2.8rem;
-    background-color: var(--bg-color) !important;
-    border-radius: 4rem !important;
-    border: 2px solid var(--main-color) !important;
-    transition: .3s ease;
-    overflow: hidden;
-    position: relative;
-    margin: 0 auto;
+.event-info-box h3 {
+    color: var(--main-color);
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-weight: 800;
 }
 
-.event-card:hover {
-    transform: scale3d(1.03);
-    background-color: var(--main-color) !important;
-    box-shadow: 0 0 25px var(--main-color);
+.event-info-box p {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    line-height: 1.9;
 }
 
-/* تأثير اللمعان (After) اللي موجود في اللجان */
-.event-card::after {
-    content: "";
-    position: absolute;
-    top: 150%;
-    left: -200px;
-    width: 120%;
-    height: 18px;
-    transform: rotate(50deg);
-    background-color: #fff;
-    filter: blur(30px);
-    opacity: .5;
-    transition: 1s;
+/* الفوتر الخاص بالحدث (الموعد واللينك) */
+.event-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(255,255,255,0.3);
 }
 
-.event-card:hover::after {
-    width: 225%;
-    top: -100%;
-}
-
-/* النصوص داخل الكارت */
-.event-card .card-title {
-    color: var(--text-color) !important;
-    font-size: 2.2rem;
-    margin-top: 15px;
-}
-
-.event-card .card-text {
-    color: var(--text-color) !important;
+.event-footer p {
     font-size: 1.5rem;
-    margin: 12px 0;
-}
-
-/* التاريخ (Badge) */
-.event-date {
-    background: #72e2ae !important; /* لون أخضر فاتح زي النقطة اللي في اللجان */
-    color: #000 !important;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    display: inline-block;
+    color: #72e2ae !important;
     margin-bottom: 10px;
 }
 
-/* Responsive بنفس قيم اللجان */
-@media screen and (max-width: 1200px) {
-    #events-container { grid-template-columns: repeat(2, 1fr); }
+.register-link {
+    display: inline-block;
+    color: var(--main-color);
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    transition: 0.3s;
 }
-@media screen and (max-width: 900px) {
-    #events-container { grid-template-columns: repeat(1, 1fr); }
-    .section-title { font-size: 3.5rem; }
+
+.register-link:hover {
+    text-shadow: 0 0 10px var(--main-color);
+}
+
+/* بوكس الصورة (إطار ملون كما في الرسم) */
+.event-photo-box {
+    flex: 1;
+    border: 3px solid var(--main-color) !important; /* الإطار الملون للموقع */
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.event-photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* التجاوب مع الموبايل */
+@media (max-width: 992px) {
+    .event-grid {
+        flex-direction: column-reverse; /* الصورة تظهر فوق الكلام في الموبايل */
+    }
 }
