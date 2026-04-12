@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="./css/news.css"> <title>News - FEE Union</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/news.css">
+    <title>News - FEE Union</title>
 </head>
 <body>
 
     <header>
-        <a href="./index.html" class="logo1">
-            <img src="./assets/Logo-removebg-preview.png" width="70px" alt="Logo">
-        </a>
+        <a href="./index.html" class="logo1"><img src="./assets/Logo-removebg-preview.png" width="70px" alt="Logo"></a>
         <div class="list">
             <nav>
                 <a href="./index.html" class="nav-link1">Home</a>
@@ -27,37 +27,34 @@
         <button id="theme" class="btn1"></button>
     </header>
 
-    <section class="container">
-        <div class="service-wrapper" style="padding-top: 130px;"> 
-            <div class="service">
-                <h1 class="section-title">أخبار الاتحاد</h1>
-                
-                <div class="filter-container mt-4">
-                    <button class="filter-btn active" data-filter="all">الكل</button>
-                    <button class="filter-btn" data-filter="achievements">إنجازات</button>
-                    <button class="filter-btn" data-filter="college">أخبار الكلية</button>
+    <main class="container" style="padding-top: 150px;">
+        <section class="news-category">
+            <h2 class="category-header">أخبار الكلية:</h2>
+            <div class="news-row">
+                <div class="news-image-box">
+                    <img src="./assets/news-college.jpg" alt="صورة الخبر">
                 </div>
-
-                <div class="cards">
-                    <div class="card news-card achievements">
-                        <img src="/assets/hero_union.webp" style="width: 100%; border-radius: 2rem; margin-top: 10px;" alt="إنجاز">
-                        <div class="news-badge mt-3">إنجاز</div>
-                        <h2 class="mb-3">مركز أول هاكاثون</h2>
-                        <p>طلاب كلية الهندسة بمنوف يحصدون المركز الأول في مسابقة الهاكاثون البرمجية على مستوى الجامعات المصرية.</p>
-                    </div>
-
-                    <div class="card news-card college">
-                        <img src="/assets/hero_union.webp" style="width: 100%; border-radius: 2rem; margin-top: 10px;" alt="تطوير">
-                        <div class="news-badge mt-3">أخبار الكلية</div>
-                        <h2 class="mb-3">تطوير المدرجات</h2>
-                        <p>بدء المرحلة الثانية من خطة تطوير قاعات المحاضرات وتزويدها بأحدث أنظمة الصوت والعرض التفاعلي لخدمة الطلاب.</p>
-                    </div>
+                <div class="news-text-box">
+                    <h3>عنوان الخبر هنا</h3>
+                    <p>تفاصيل الخبر المكتوبة ناصعة البياض كما طلبت، لتكون واضحة تماماً فوق الخلفية السوداء.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="news-category mt-5">
+            <h2 class="category-header">الانجازات:</h2>
+            <div class="news-row">
+                <div class="news-image-box">
+                    <img src="./assets/achievement.jpg" alt="صورة الانجاز">
+                </div>
+                <div class="news-text-box">
+                    <h3>عنوان الانجاز هنا</h3>
+                    <p>نفس التنسيق المتبع في الأعلى لضمان توحيد شكل الصفحة بالكامل.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="./js/script.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
 </body>
 </html>
