@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./css/events.css">
     <title>Events - FEE Union</title>
 </head>
@@ -29,23 +30,67 @@
     <main class="container" style="padding-top: 150px;">
         <h1 class="section-title text-center">الفعاليات القادمة</h1>
 
-        <div class="event-main-wrapper">
-            <h2 class="event-title-top">مسابقة البرمجة الكبرى</h2>
-            <div class="event-grid">
-                <div class="event-info-box">
-                    <h3>تفاصيل عن الحدث</h3>
-                    <p>وصف تفصيلي للفعالية وما سيتم تقديمه للطلاب من محتوى تقني وتدريبي.</p>
-                    <div class="event-footer">
-                        <p><strong><i class="fa-solid fa-clock"></i> مدة الحدث:</strong> 15 ابريل - 10 صباحاً</p>
-                        <a href="#" class="register-link"><i class="fa-solid fa-link"></i> لينك التسجيل أو البوست</a>
-                    </div>
-                </div>
-                <div class="event-photo-box">
-                    <img src="./assets/IEEE-Xtreme-feature_-600x314.png" alt="Event Image">
-                </div>
-            </div>
+        <div id="events-display-list">
+            <p style="color: #fff; text-align: center; font-size: 1.2rem;">جاري تحميل الفعاليات...</p>
         </div>
     </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
+
+    <script>
+        // إعدادات Firebase الخاصة بك
+        const firebaseConfig = {
+            apiKey: "AIzaSyC2T9LdO_HP7Q0hkgokOWWo-wPsBRMvMsc",
+            authDomain: "fee-union.firebaseapp.com",
+            databaseURL: "https://fee-union-default-rtdb.firebaseio.com/",
+            projectId: "fee-union",
+            storageBucket: "fee-union.firebasestorage.app",
+            messagingSenderId: "96677093224",
+            appId: "1:96677093224:web:5538c35947db42f62740dd",
+            measurementId: "G-DM9JK6D159"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // مراقبة قسم الفعاليات في قاعدة البيانات
+        database.ref('events').on('value', (snapshot) => {
+            const data = snapshot.val();
+            const eventsContainer = document.getElementById('events-display-list');
+            
+            eventsContainer.innerHTML = ''; // مسح الرسالة التحميلية
+
+            if (data) {
+                // تحويل الـ Object لمصفوفة وعرضها
+                Object.values(data).reverse().forEach(item => {
+                    eventsContainer.innerHTML += `
+                        <div class="event-main-wrapper">
+                            <h2 class="event-title-top">${item.name}</h2>
+                            <div class="event-grid">
+                                <div class="event-info-box">
+                                    <h3>تفاصيل عن الحدث</h3>
+                                    <p>${item.desc}</p>
+                                    <div class="event-footer">
+                                        <p><strong><i class="fa-solid fa-clock"></i> الموعد:</strong> ${item.date}</p>
+                                        <a href="${item.link}" target="_blank" class="register-link">
+                                            <i class="fa-solid fa-link"></i> لينك التسجيل أو البوست
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="event-photo-box">
+                                    <img src="${item.img}" alt="Event Image">
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                eventsContainer.innerHTML = '<p style="color: #666; text-align: center;">لا توجد فعاليات قادمة حالياً.</p>';
+            }
+        });
+    </script>
 
     <script src="./js/script.js"></script>
 </body>
