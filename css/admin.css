@@ -78,3 +78,38 @@
     background-color: #ff0000;
     color: #fff;
 }
+.admin-items-grid {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.admin-item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 25px;
+    border-radius: 15px;
+    border-right: 4px solid var(--main-color);
+}
+
+.admin-item-card span {
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.del-btn {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.del-btn:hover {
+    background: #b30000;
+    transform: scale(1.05);
+}
