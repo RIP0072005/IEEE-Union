@@ -32,30 +32,77 @@
 
         <section class="news-category">
             <h2 class="category-header">أخبار الكلية:</h2>
-            <div class="news-row">
-                <div class="news-image-box">
-                    <img src="./assets/IEEE-Extreame-pic.png" alt="صورة الخبر">
-                </div>
-                <div class="news-text-box">
-                    <h3>عنوان الخبر هنا</h3>
-                    <p>تفاصيل الخبر المكتوبة ناصعة البياض وواضحة تماماً فوق الخلفية السوداء.</p>
-                </div>
+            <div id="college-news-container">
+                <p style="color: #fff; text-align: center; font-size: 1.2rem;">جاري تحميل الأخبار...</p>
             </div>
         </section>
 
         <section class="news-category mt-5">
             <h2 class="category-header">الانجازات:</h2>
-            <div class="news-row">
-                <div class="news-image-box">
-                    <img src="./assets/IEEE-Projects-For-Computer-Science-Engineers.png" alt="صورة الانجاز">
+            <div id="achievements-container">
                 </div>
-                <div class="news-text-box">
-                    <h3>عنوان الانجاز هنا</h3>
-                    <p>نفس التنسيق المتبع لضمان توحيد شكل الصفحة بالكامل.</p>
-                </div>
-            </div>
         </section>
     </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
+
+    <script>
+        // إعدادات Firebase الخاصة بمشروعك
+        const firebaseConfig = {
+            apiKey: "AIzaSyC2T9LdO_HP7Q0hkgokOWWo-wPsBRMvMsc",
+            authDomain: "fee-union.firebaseapp.com",
+            databaseURL: "https://fee-union-default-rtdb.firebaseio.com/",
+            projectId: "fee-union",
+            storageBucket: "fee-union.firebasestorage.app",
+            messagingSenderId: "96677093224",
+            appId: "1:96677093224:web:5538c35947db42f62740dd",
+            measurementId: "G-DM9JK6D159"
+        };
+
+        // بدء تشغيل Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // سحب البيانات من السيرفر وعرضها
+        database.ref('news').on('value', (snapshot) => {
+            const data = snapshot.val();
+            const collegeContainer = document.getElementById('college-news-container');
+            const achievementsContainer = document.getElementById('achievements-container');
+            
+            // مسح المحتوى الحالي قبل إضافة البيانات الجديدة
+            collegeContainer.innerHTML = '';
+            achievementsContainer.innerHTML = '';
+
+            if (data) {
+                // تحويل البيانات لمصفوفة وعكسها ليظهر الخبر الأحدث أولاً
+                const newsItems = Object.values(data).reverse();
+
+                newsItems.forEach(item => {
+                    const newsHTML = `
+                        <div class="news-row">
+                            <div class="news-image-box">
+                                <img src="${item.img}" alt="صورة الخبر">
+                            </div>
+                            <div class="news-text-box">
+                                <h3>${item.title}</h3>
+                                <p>${item.desc}</p>
+                            </div>
+                        </div>
+                    `;
+
+                    // توزيع الخبر حسب الفئة المختارة في الـ Dashboard
+                    if (item.category === 'college') {
+                        collegeContainer.innerHTML += newsHTML;
+                    } else {
+                        achievementsContainer.innerHTML += newsHTML;
+                    }
+                });
+            } else {
+                collegeContainer.innerHTML = '<p style="color: #666; text-align: center;">لا توجد أخبار حالياً.</p>';
+            }
+        });
+    </script>
 
     <script src="./js/script.js"></script>
 </body>
