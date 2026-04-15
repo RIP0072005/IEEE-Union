@@ -49,3 +49,53 @@ document.getElementById('event-form').addEventListener('submit', function(e) {
         this.reset();
     });
 });
+// --- وظيفة جلب البيانات وعرضها في لوحة التحكم مع زر الحذف ---
+
+// 1. عرض الأخبار للحذف
+database.ref('news').on('value', (snapshot) => {
+    const data = snapshot.val();
+    const list = document.getElementById('admin-news-list');
+    list.innerHTML = '';
+    if (!data) return;
+
+    Object.keys(data).forEach(id => {
+        const item = data[id];
+        list.innerHTML += `
+            <div class="admin-item-card">
+                <span>${item.title}</span>
+                <button onclick="deleteItem('news', '${id}')" class="del-btn">
+                    <i class="fas fa-trash"></i> حذف
+                </button>
+            </div>
+        `;
+    });
+});
+
+// 2. عرض الفعاليات للحذف
+database.ref('events').on('value', (snapshot) => {
+    const data = snapshot.val();
+    const list = document.getElementById('admin-events-list');
+    list.innerHTML = '';
+    if (!data) return;
+
+    Object.keys(data).forEach(id => {
+        const item = data[id];
+        list.innerHTML += `
+            <div class="admin-item-card">
+                <span>${item.name}</span>
+                <button onclick="deleteItem('events', '${id}')" class="del-btn">
+                    <i class="fas fa-trash"></i> حذف
+                </button>
+            </div>
+        `;
+    });
+});
+
+// 3. الوظيفة السحرية للحذف من Firebase
+function deleteItem(path, id) {
+    if (confirm("هل أنت متأكد من حذف هذا العنصر نهائياً؟")) {
+        database.ref(`${path}/${id}`).remove()
+            .then(() => alert("تم الحذف بنجاح!"))
+            .catch(err => alert("خطأ في الحذف: " + err.message));
+    }
+}
